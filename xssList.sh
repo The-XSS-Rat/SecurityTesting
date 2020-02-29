@@ -17,6 +17,6 @@ done
 
 while read line; do
    echo "Starting: $line"
-   python3 /Users/wesleythijs/Documents/BugBounties/ScriptsGeneral/XSStrike/xsstrike.py -u "$line"
+   python3 /Users/wesleythijs/Documents/BugBounties/ScriptsGeneral/XSStrike/xsstrike.py -u "$line" >> "XSS_$parameterF.txt"
 done < "$parameterF"
 
