@@ -36,4 +36,5 @@ else
 fi
 
 nikto -output "$parameterO.txt" --host "$parameterH"
+nikto -output "$parameterO.txt" --host "$parameterH:443"
 
