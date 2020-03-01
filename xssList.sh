@@ -15,8 +15,14 @@ do
    esac
 done
 
+# Print helpFunction in case parameters are empty
+if [ -z "$parameterF" ]
+then
+   echo "Some or all of the parameters are empty";
+   helpFunction
+fi
+
 while read line; do
    echo "Starting: $line"
    python3 /Users/wesleythijs/Documents/BugBounties/ScriptsGeneral/XSStrike/xsstrike.py -u "$line" >> "XSS_$parameterF.txt"
 done < "$parameterF"
-
