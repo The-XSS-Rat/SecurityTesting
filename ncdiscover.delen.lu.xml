@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE nmaprun>
-<?xml-stylesheet href="file:///usr/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 7.80 scan initiated Sat Feb 29 21:58:00 2020 as: nmap -p- -sC -sV -oA ncdiscover.delen.lu ncdiscover.delen.lu -->
-<nmaprun scanner="nmap" args="nmap -p- -sC -sV -oA ncdiscover.delen.lu ncdiscover.delen.lu" start="1583009880" startstr="Sat Feb 29 21:58:00 2020" version="7.80" xmloutputversion="1.04">
-<scaninfo type="connect" protocol="tcp" numservices="65535" services="1-65535"/>
