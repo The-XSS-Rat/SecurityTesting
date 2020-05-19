@@ -12,10 +12,7 @@ For every input field
 	If it catches on anything, go deeper
 
 CSRF
-For every input field
-	Try to get <a href=#>test</a> an entity in
-	Try to get an obfuscated entity in
-	If it catches on anything, go deeper
+Check if the token changes
 
 Cookie
 Httponly flag?
