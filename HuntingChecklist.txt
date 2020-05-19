@@ -5,14 +5,21 @@ Look at the session token, does it change? If not, they might be useable for ses
 Delete a logged in user and check if he can still do actions before logging out
 ….
 
-XSS
+Stored XSS
 For every input field
 	Try to get <a href=#>test</a> an entity in
 	Try to get an obfuscated entity in
 	If it catches on anything, go deeper
+	
+Reflected XSS
+Check the error pages (404,403,..)
+	Trigger a 403 by trying to get the .htaccess file
+Try every reflected parameter
 
 CSRF
+Check if there is a CSRF token
 Check if the token changes
+Check if the server still accepts the token if you give it a random token
 
 Cookie
 Httponly flag?
