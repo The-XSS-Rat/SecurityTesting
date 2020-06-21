@@ -35,6 +35,6 @@ else
    nmap -sC -sV -oA "$parameterO" "$parameterH"
 fi
 
-nikto -output --host "$parameterH" >> "Nikto-$parameterH"
-nikto -output --host "$parameterH:443" >> "Nikto-443-$parameterH"
+nikto --host "$parameterH" >> "Nikto-$parameterH"
+nikto --host "$parameterH:443" >> "Nikto-443-$parameterH"
 
