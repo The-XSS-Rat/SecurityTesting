@@ -1,4 +1,4 @@
-Sessions
+**Sessions**
 Make a user with every role and check if he can directly access pages he should not be able to
 Take away a role and check if the user can still do the actions before logging out
 Look at the session token, does it change? If not, they might be useable for session fixation
