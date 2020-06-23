@@ -5,6 +5,8 @@
 - https://github.com/fwaeytens/dnsenum/
 - https://github.com/tomnomnom/assetfinder
 - https://crt.sh/
+- amass
+- findomain
 
 **Checking if our subdomains are live**
 - https://github.com/tomnomnom/httprobe
@@ -18,6 +20,7 @@
 
 **Vulnerability scanners**
 - https://cirt.net/Nikto2
+- nuclei
 - https://github.com/heilla/SecurityTesting/blob/master/initialScan.sh
 
 **Directory brute forcing**
@@ -29,3 +32,8 @@
 **Javascript analyses**
 - https://github.com/GerbenJavado/LinkFinder
 - https://github.com/lc/gau
+
+**Port scanning**
+- Masscan
+- Naabu
+- Nmap
