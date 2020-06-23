@@ -13,8 +13,8 @@
 - https://pastebin.com/3ByVDTx4
 
 **Subdomain flyover**
-https://github.com/FortyNorthSecurity/EyeWitness
-https://github.com/michenriksen/aquatone
+- https://github.com/FortyNorthSecurity/EyeWitness
+- https://github.com/michenriksen/aquatone
 
 **Vulnerability scanners**
 - https://cirt.net/Nikto2
