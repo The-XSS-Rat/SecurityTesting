@@ -1,11 +1,10 @@
-1. Subdomain enumeration
----------------------
-https://github.com/projectdiscovery/subfinder 
-https://dnsdumpster.com/
-https://www.shodan.io/
-https://github.com/fwaeytens/dnsenum/
-https://github.com/tomnomnom/assetfinder
-https://crt.sh/
+**Subdomain enumeration**
+- https://github.com/projectdiscovery/subfinder 
+- https://dnsdumpster.com/
+- https://www.shodan.io/
+- https://github.com/fwaeytens/dnsenum/
+- https://github.com/tomnomnom/assetfinder
+- https://crt.sh/
 
 2. Checking if our subdomains are live
 ---------------------
