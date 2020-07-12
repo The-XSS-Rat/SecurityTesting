@@ -10,7 +10,7 @@
 *Tips*
 
 - For every input field
-	- Try to get <a href=#>test</a> an entity in
+	- Try to get ```<a href=#>test</a>``` an entity in
 	- Try to get an obfuscated entity in
 	- If it catches on anything, go deeper
 
@@ -45,12 +45,14 @@ https://www.youtube.com/watch?v=N3HfF6_3k94
 
 https://www.youtube.com/watch?v=ImqLlFMQrwQ
 
-Cookie
-Httponly flag?
-Secure flag?
-Is the domain of the cookie checked? 
-	If not You can write a cookie to a subpath and it will append that to the request
-Is cookie reflected in URL GET parameter?
+**Cookie**
+
+*Tips*
+- Httponly flag?
+- Secure flag?
+- Is the domain of the cookie checked? 
+	- If not You can write a cookie to a subpath and it will append that to the request
+- Is cookie reflected in URL GET parameter?
 
 IDOR
 Try directly going to objects that you have no right to that are on the same level of authentication as the user
