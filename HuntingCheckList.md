@@ -36,7 +36,6 @@ https://www.youtube.com/watch?v=N3HfF6_3k94
 **CSRF**
 
 *Tips*
-
 - Check if there is a CSRF token
 - Check if the token changes
 - Check if the server still accepts the token if you give it a random token
