@@ -81,9 +81,15 @@
 - https://www.youtube.com/watch?v=unS3xGZj8xk
 - https://www.youtube.com/watch?v=EwsW2WfUTmQ
 
-Chaining
-Maybe use a CSRF to make someone insert XSS on their own page?
-Maybe use XSS to steal non httpOnly cookie?
-Maybe use XSS to overwrite cookie on different path?
-Maybe use session that never changes togheter with xss to steal cookie for eternal account takeover (+ severity)
-Maybe use XSS to steal info displayed on the page (GDPR issue - PILL data)
+**Chaining**
+
+*Tips*
+- Maybe use a CSRF to make someone insert XSS on their own page?
+- Maybe use XSS to steal non httpOnly cookie?
+- Maybe use XSS to overwrite cookie on different path?
+- Maybe use session that never changes togheter with xss to steal cookie for eternal account takeover (+ severity)
+- Maybe use XSS to steal info displayed on the page (GDPR issue - PILL data)
+
+*Videos*
+- https://www.youtube.com/watch?v=5vYhTik8_yU
+- https://www.youtube.com/watch?v=unS3xGZj8xk
