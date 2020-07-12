@@ -7,25 +7,42 @@
 
 **Stored XSS**
 
+*Tips*
+
 - For every input field
-..- Try to get <a href=#>test</a> an entity in
-..- Try to get an obfuscated entity in
-..- If it catches on anything, go deeper
+	- Try to get <a href=#>test</a> an entity in
+	- Try to get an obfuscated entity in
+	- If it catches on anything, go deeper
+
+*video's*
+
 - https://www.youtube.com/watch?v=uHy1x1NkwRU
 	
-Reflected XSS
-Check the error pages (404,403,..)
-	Trigger a 403 by trying to get the .htaccess file
-Try every reflected parameter
+**Reflected XSS**
+
+*Tips*
+
+- Check the error pages (404,403,..)
+	- Trigger a 403 by trying to get the .htaccess file
+- Try every reflected parameter
+
+*video's*
+
 https://www.youtube.com/watch?v=wuyAY3vvd9s
 https://www.youtube.com/watch?v=GsyOuQBG2yM
 https://www.youtube.com/watch?v=5L_14F-uNGk
 https://www.youtube.com/watch?v=N3HfF6_3k94
 
-CSRF
-Check if there is a CSRF token
-Check if the token changes
-Check if the server still accepts the token if you give it a random token
+**CSRF**
+
+*Tips*
+
+- Check if there is a CSRF token
+- Check if the token changes
+- Check if the server still accepts the token if you give it a random token
+
+*video's*
+
 https://www.youtube.com/watch?v=ImqLlFMQrwQ
 
 Cookie
