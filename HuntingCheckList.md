@@ -34,7 +34,6 @@ https://www.youtube.com/watch?v=5L_14F-uNGk
 https://www.youtube.com/watch?v=N3HfF6_3k94
 
 **CSRF**
-
 *Tips*
 - Check if there is a CSRF token
 - Check if the token changes
