@@ -1,16 +1,17 @@
 **Sessions**
-Make a user with every role and check if he can directly access pages he should not be able to
-Take away a role and check if the user can still do the actions before logging out
-Look at the session token, does it change? If not, they might be useable for session fixation
-Delete a logged in user and check if he can still do actions before logging out
-….
 
-Stored XSS
-For every input field
-	Try to get <a href=#>test</a> an entity in
-	Try to get an obfuscated entity in
-	If it catches on anything, go deeper
-https://www.youtube.com/watch?v=uHy1x1NkwRU
+- Make a user with every role and check if he can directly access pages he should not be able to
+- Take away a role and check if the user can still do the actions before logging out
+- Look at the session token, does it change? If not, they might be useable for session fixation
+- Delete a logged in user and check if he can still do actions before logging out
+
+**Stored XSS**
+
+- For every input field
+..- Try to get <a href=#>test</a> an entity in
+..- Try to get an obfuscated entity in
+..- If it catches on anything, go deeper
+- https://www.youtube.com/watch?v=uHy1x1NkwRU
 	
 Reflected XSS
 Check the error pages (404,403,..)
