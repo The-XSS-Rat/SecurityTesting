@@ -5,6 +5,8 @@
 - Look at the session token, does it change? If not, they might be useable for session fixation
 - Delete a logged in user and check if he can still do actions before logging out
 
+--------
+
 **Stored XSS**
 
 *Tips*
@@ -15,6 +17,8 @@
 
 *video's*
 - https://www.youtube.com/watch?v=uHy1x1NkwRU
+
+--------
 	
 **Reflected XSS**
 
@@ -29,6 +33,8 @@
 - https://www.youtube.com/watch?v=5L_14F-uNGk
 - https://www.youtube.com/watch?v=N3HfF6_3k94
 
+--------
+
 **DOM XSS**
 
 *Tips*
@@ -40,6 +46,8 @@
 - https://www.youtube.com/watch?v=gBqzzhgHoYg
 - https://www.youtube.com/watch?v=WclmtS8Ftc4
 
+--------
+
 **XSS filter evasion tips**
 
 *Tips*
@@ -48,6 +56,8 @@
 	- ```javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/"/+/onmouseover=1/+/[*/[]/+alert(1)//'>```
 	- https://gist.github.com/michenriksen/d729cd67736d750b3551876bbedbe626
 	
+	
+--------
 
 **CSRF**
 
@@ -59,6 +69,8 @@
 *video's*
 - https://www.youtube.com/watch?v=ImqLlFMQrwQ
 
+--------
+
 **Cookie**
 
 *Tips*
@@ -67,6 +79,8 @@
 - Is the domain of the cookie checked? 
 	- If not You can write a cookie to a subpath and it will append that to the request
 - Is cookie reflected in URL GET parameter?
+
+--------
 
 **IDOR**
 
@@ -81,6 +95,8 @@
 - https://www.youtube.com/watch?v=5vYhTik8_yU
 - https://www.youtube.com/watch?v=HQUxXE1oaIE
 
+--------
+
 **SSTI**
 
 *Tips*
@@ -91,6 +107,8 @@
 - https://www.youtube.com/watch?v=iQ6FuL-DgX8
 - https://www.youtube.com/watch?v=i8cvh0u-VXE
 
+--------
+
 **XXE**
 
 *Tips*
@@ -100,6 +118,8 @@
 - https://www.youtube.com/watch?v=AQUHzyzZXeA
 - https://www.youtube.com/watch?v=unS3xGZj8xk
 - https://www.youtube.com/watch?v=EwsW2WfUTmQ
+
+--------
 
 **Chaining XSS**
 
@@ -113,11 +133,14 @@
 - https://www.youtube.com/watch?v=5vYhTik8_yU
 - https://www.youtube.com/watch?v=unS3xGZj8xk
 
+--------
+
 **Chaining CSRF**
 
 *Tips*
 - Maybe use a CSRF to make someone insert XSS on their own page?
 
+--------
 
 **Chaining IDOR**
 
