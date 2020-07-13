@@ -29,6 +29,17 @@
 - https://www.youtube.com/watch?v=5L_14F-uNGk
 - https://www.youtube.com/watch?v=N3HfF6_3k94
 
+**DOM XSS**
+
+*Tips*
+- Would not recommend manually looking for DOM XSS
+- Burp suite PRO scanner can find DOM XSS
+- Tool: https://github.com/dpnishant/ra2-dom-xss-scanner
+
+*video's*
+- https://www.youtube.com/watch?v=gBqzzhgHoYg
+- https://www.youtube.com/watch?v=WclmtS8Ftc4
+
 **XSS filter evasion tips**
 
 *Tips*
