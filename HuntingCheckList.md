@@ -19,7 +19,7 @@
 **Reflected XSS**
 
 *Tips*
-- Check the error pages (404,403,..)
+- Check the error pages (404,403,..) sometimes they contain reflected values
 	- Trigger a 403 by trying to get the .htaccess file
 - Try every reflected parameter
 
@@ -28,6 +28,15 @@
 - https://www.youtube.com/watch?v=GsyOuQBG2yM
 - https://www.youtube.com/watch?v=5L_14F-uNGk
 - https://www.youtube.com/watch?v=N3HfF6_3k94
+
+**XSS filter evasion tips**
+
+*Tips*
+- < and > can be replace with html entities &lt; and &gt;
+- You can try an XSS polyglot
+	- ```javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/"/+/onmouseover=1/+/[*/[]/+alert(1)//'>```
+	- https://gist.github.com/michenriksen/d729cd67736d750b3551876bbedbe626
+	
 
 **CSRF**
 
@@ -81,10 +90,9 @@
 - https://www.youtube.com/watch?v=unS3xGZj8xk
 - https://www.youtube.com/watch?v=EwsW2WfUTmQ
 
-**Chaining**
+**Chaining XSS**
 
 *Tips*
-- Maybe use a CSRF to make someone insert XSS on their own page?
 - Maybe use XSS to steal non httpOnly cookie?
 - Maybe use XSS to overwrite cookie on different path?
 - Maybe use session that never changes togheter with xss to steal cookie for eternal account takeover (+ severity)
@@ -93,3 +101,14 @@
 *Videos*
 - https://www.youtube.com/watch?v=5vYhTik8_yU
 - https://www.youtube.com/watch?v=unS3xGZj8xk
+
+**Chaining CSRF**
+
+*Tips*
+- Maybe use a CSRF to make someone insert XSS on their own page?
+
+
+**Chaining IDOR**
+
+*Tips*
+- Sometimes, programs use UUID's (1213804129abc80823213214) and you find an IDOR on it. It will be low impact because you can't easily guess this id. maybe you can find an endpoint that displays all the UUID's? 
