@@ -1,3 +1,16 @@
+**Strategy**
+
+*Tips*
+- First of all, get to know your application, spend some time on using it normally but keep burp open
+- Start with XSS and SSTI as early as possible if in scope, insert them into every field you see
+- Create your own fuzzing lists 
+- Expand this list with your own findings
+- VDP over paid if you want less competition
+- PoC or GTFO
+- Prove your impact
+
+--------
+
 **Sessions**
 
 - Make a user with every role and check if he can directly access pages he should not be able to
@@ -48,6 +61,17 @@
 
 --------
 
+**Blind XSS**
+
+*Tips*
+- Use xsshunter
+- Start hunting for blind XSS soon
+- Copy every payload from your xsshunter payloads section and paste it into every field you see
+- XSS hunter contains a payload for CSP bypass
+- Generate some variations of your payloads (example replace < with &lt;)
+
+--------
+
 **XSS filter evasion tips**
 
 *Tips*
@@ -58,6 +82,19 @@
 	
 	
 --------
+
+**Command injection**
+
+*Tips*
+- Create your own fuzzing list! (See video's)
+- Blind command injection can happen so make sure you include a delay command in your fuzzing list
+- Make sure you include windows and Linux commands on your fuzzing list
+
+*Video's*
+- https://youtu.be/GZyoEXdezZM
+- https://youtu.be/B-aVRsaQTgo
+
+-------
 
 **CSRF**
 
@@ -82,18 +119,27 @@
 
 --------
 
-**IDOR**
+**IDOR/broken access control**
 
 *Tips*
 - Try directly going to objects that you have no right to that are on the same level of authentication as the user
 - Try directly going to objects that you have no right to that are on a higher level of authentication as the user
 - Try directly going to objects that you have no right to that are from a different client in the system
+- In Europe, Personal identifiable information is sensitive so bugs containing these can be of a higher severity
 
 *video's*
 - https://www.youtube.com/watch?v=hZ0xSRswN8M
 - https://www.youtube.com/watch?v=mjrGOuFc1Kw
 - https://www.youtube.com/watch?v=5vYhTik8_yU
 - https://www.youtube.com/watch?v=HQUxXE1oaIE
+
+--------
+
+**LFI/RFI**
+
+*Tips*
+- If a file or image is being loaded from the local disk, try LFI/RFI (example file=test.jpg)
+- Keep a VPS handy for when you need to do RFI
 
 --------
 
@@ -113,6 +159,8 @@
 
 *Tips*
 - For every XML input you see, try XXE
+- For every document upload, try to upload a docx file. Those can be vulnerable to XXE as well.
+- For every picture upload, try to upload an SVG, you can do XXE via SVG as well
 
 *video's*
 - https://www.youtube.com/watch?v=AQUHzyzZXeA
@@ -121,6 +169,13 @@
 
 --------
 
+**SSRF**
+
+*Video's*
+- https://youtu.be/UpzXZcfYNNc
+- https://youtu.be/unS3xGZj8xk
+
+--------
 **Chaining XSS**
 
 *Tips*
@@ -146,3 +201,14 @@
 
 *Tips*
 - Sometimes, programs use UUID's (1213804129abc80823213214) and you find an IDOR on it. It will be low impact because you can't easily guess this id. maybe you can find an endpoint that displays all the UUID's? 
+
+--------
+
+**Finding hidden endpoints**
+
+*Tips*
+- Read the documenation. If there's an API, there might be API docs, google them!
+- If there is a mobile app but it's not in scope, the app might communicate with a server that is in scope so think outside of the box
+- GAU is a great tool to analyse JavaScript files
+- Look in the settings if you can find some modules that are not active by default. Every hurdle you take is one that leaves a few other hackers behind
+- If there is a paywall, invest. The more you have access to, the better
