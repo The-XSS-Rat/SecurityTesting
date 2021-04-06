@@ -10,6 +10,7 @@
 # Dictionary attacks
 1. [knockPy](https://github.com/guelfoweb/knock)
 2. [DNSRecon](https://github.com/darkoperator/dnsrecon)
+3. [MassDNS](https://github.com/blechschmidt/massdns)
 
 # Permutation Scanning
 1. [AltDNS](https://github.com/infosec-au/altdns)
