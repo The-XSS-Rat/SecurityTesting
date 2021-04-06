@@ -1,3 +1,17 @@
+- [Usage And flow](#usage-and-flow)
+  * [Amass](#amass)
+    + [Installation](#installation)
+      - [Requirements](#requirements)
+      - [Steps](#steps)
+    + [Running amass](#running-amass)
+- [List of Tools](#list-of-tools)
+  * [General Tools](#general-tools)
+  * [Dictionary attacks](#dictionary-attacks)
+  * [Permutation Scanning](#permutation-scanning)
+  * [DNS Databases](#dns-databases)
+  * [Checking SubDomain Status Code](#checking-subdomain-status-code)
+
+
 # Usage And flow
 ## Amass
 First off, i like to use Amass. It will give me a great amount of results and usually makes the other tools seem like nubs.
