@@ -17,7 +17,8 @@
 # DNS Databases
 1. [DNS Dumpster](https://dnsdumpster.com/)
 2. [Shodan](https://snippets.shodan.io/c/83ldc9nef1Tp2R8C)
+3. [Pentest-tools](https://pentest-tools.com/information-gathering/find-subdomains-of-domain)
 
 # Checking SubDomain Status Code
 1. [URLChecker](https://github.com/evanRubinsteinIT/URLChecker)
-2. [HTTProbe](https://github.com/tomnomnom/httprobe)>
+2. [HTTProbe](https://github.com/tomnomnom/httprobe)
