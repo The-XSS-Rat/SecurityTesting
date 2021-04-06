@@ -4,6 +4,7 @@
 3. [Findomain](https://github.com/Findomain/Findomain)
 4. [Sublist3r](https://github.com/aboul3la/Sublist3r)
 5. [dnssearch](https://github.com/evilsocket/dnssearch)
+6. [Sudomy](https://github.com/Screetsec/Sudomy)
 
 
 # Dictionary attacks
