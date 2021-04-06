@@ -4,6 +4,7 @@
       - [Requirements](#requirements)
       - [Steps](#steps)
     + [Running amass](#running-amass)
+  * [Other general tools](#other-general-tools)
 - [List of Tools](#list-of-tools)
   * [General Tools](#general-tools)
   * [Dictionary attacks](#dictionary-attacks)
@@ -11,6 +12,7 @@
   * [DNS Databases](#dns-databases)
   * [Checking SubDomain Status Code](#checking-subdomain-status-code)
 
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # Usage And flow
 ## Amass
@@ -29,6 +31,8 @@ First off, i like to use Amass. It will give me a great amount of results and us
      amass intel -org google
     This will result in CIDR records:
      amass intel -ip -src -cidr IP.IP.IP.IP
+## Other general tools
+We can run other tools like SubFinder, FinDomain, dnssearch,... to complete our list, for those see the github pages.
 
 # List of Tools
 ## General Tools
