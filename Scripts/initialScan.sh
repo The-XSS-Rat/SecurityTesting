@@ -1,3 +1,17 @@
+tput setaf 2;
+echo "=========================================================="
+echo "Welcome to my Nub Script for automating Your initial scan of a domain."
+echo ""
+echo "Make sure you have nmap installed"
+echo ""
+echo ""
+echo "Usage: $0 -a true/[EMPTY] -h domain.com -o main-site"
+echo -e "\t-h Host(bla.domain.com or domain.com)"
+echo -e "\t-o OutputName"
+echo -e "\t-a OPTIONAL: Advanced(run portscan on all ports), set to value true"
+echo "=========================================================="
+tput sgr0;
+
 helpFunction()
 {
    echo ""
@@ -28,13 +42,10 @@ fi
 #if advanced is set do a full portscan
 if [ "$parameterA" == "true" ]
 then
-   echo "full nmap scan..."
+   echo "Scanning all ports...-p- -sC -sV -oA"
    nmap -p- -sC -sV -oA "$parameterO" "$parameterH"
 else
    echo "quick nmap scan..."
    nmap -sC -sV -oA "$parameterO" "$parameterH"
 fi
-
-nikto --host "$parameterH" >> "Nikto-$parameterH"
-nikto --host "$parameterH:443" >> "Nikto-443-$parameterH"
 
