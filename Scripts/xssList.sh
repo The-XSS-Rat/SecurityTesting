@@ -1,17 +1,28 @@
+tput setaf 2;
+echo "=========================================================="
+echo "Welcome to my Nub Script for automating xssTrike"
+echo ""
+echo "Make sure you have Python3 intstalled and XSStrike/xsstrike.py in '$HOME'"
+echo ""
+echo "Usage: $0 -f domain.txt"
+echo -e "\t-f FileName(domains.txt or domain.lst)"
+echo "=========================================================="
+tput sgr0;
+
 helpFunction()
 {
+   tput setaf 2;
    echo ""
-   echo "Usage: $0 -a true/[EMPTY] -f domain.txt"
+   echo "Usage: $0 -f domain.txt"
    echo -e "\t-f FileName(domains.txt or domain.lst)"
-   echo -e "\t-a OPTIONAL: Advanced(run portscan on all ports), set to value true"
+   tput sgr0;
    exit 1 # Exit script after printing help
 }
 
-while getopts "f:a:" opt
+while getopts "f:" opt
 do
    case "$opt" in
       f ) parameterF="$OPTARG" ;;
-      a ) parameterA="$OPTARG" ;;
    esac
 done
 
@@ -24,5 +35,5 @@ fi
 
 while read line; do
    echo "Starting: $line"
-   python3 /Users/wesleythijs/Documents/BugBounties/ScriptsGeneral/XSStrike/xsstrike.py -u "$line" >> "XSS_$parameterF.txt"
+   python3 $HOME/XSStrike/xsstrike.py -u "$line" >> "XSS_$parameterF.txt"
 done < "$parameterF"
