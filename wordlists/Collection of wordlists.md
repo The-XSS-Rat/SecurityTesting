@@ -14,7 +14,6 @@
 - https://github.com/jeanphorn/wordlist
 - https://github.com/j3ers3/PassList
 - https://github.com/nyxxxie/awesome-default-passwords
-- https://owasp.org/index.php/DirBuster
 - https://github.com/six2dez/OneListForAll
 - https://github.com/c4b3rw0lf/wordlist-collection
 - https://github.com/jeanphorn/wordlist
