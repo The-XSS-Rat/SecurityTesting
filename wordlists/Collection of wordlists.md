@@ -1,5 +1,3 @@
-- https://github.com/wireghoul/dotdotpwn
-- https://github.com/xyele/hackerone_wordlist
 - https://github.com/assetnote/commonspeak2-wordlists
 - https://github.com/random-robbie/bruteforce-lists
 - https://wordlists.assetnote.io
