@@ -61,3 +61,5 @@ We can run other tools like SubFinder, FinDomain, dnssearch,... to complete our 
 ## Checking SubDomain Status Code
 1. [URLChecker](https://github.com/evanRubinsteinIT/URLChecker)
 2. [HTTProbe](https://github.com/tomnomnom/httprobe)
+3. [httpx](https://github.com/projectdiscovery/httpx)
+4. [dnsx](https://github.com/projectdiscovery/dnsx)
