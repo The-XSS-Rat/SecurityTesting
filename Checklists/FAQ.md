@@ -10,3 +10,15 @@ Great question!!
 - Understand what function is vulnerable in Jquery
 - Developers have to use THAT function in user controlleable way
 - Execute vulnerable function ENSURE developers did not apply filter
+
+## I found a CSRF issue on the login/logout/change password/change email/... 
+
+there is no CSRF token on the password reset/change password/login/logout
+
+Don't look for CSRF on functionality that needs any form of control over the users account.
+Pass change = you need current pass
+pass reset = you need token from the email adress of the victim unless you can get the server to send the token to you but you don't need CSRF then.
+Email change = pass required
+login/logout = why even?  
+
+Impact only :)<3
