@@ -22,3 +22,6 @@ Email change = pass required
 login/logout = why even?  
 
 Impact only :)<3
+
+## How you find original IP and bypass the waf for port scanning ?
+Cloudflare: https://blog.detectify.com/2019/07/31/bypassing-cloudflare-waf-with-the-origin-server-ip-address/
