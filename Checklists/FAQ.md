@@ -1,3 +1,12 @@
+## Table of contents
+- [Burp collaborator alternatives](#burp-collaborator-alternatives)
+- [I found website uses vulnerable version of JQuery, how do i exploit?](#i-found-website-uses-vulnerable-version-of-jquery-how-do-i-exploit)
+- [I found a CSRF issue on the login/logout/change password/change email/...](#i-found-a-csrf-issue-on-the-loginlogoutchange-passwordchange-email)
+- [How you find original IP and bypass the waf for port scanning ?](#how-you-find-original-ip-and-bypass-the-waf-for-port-scanning-)
+- [FAQ how do i 403 bypass?](#faq-how-do-i-403-bypass-)
+
+-----
+
 ## Burp collaborator alternatives
 - [Interactsh](https://t.co/nqFoFQxa8W?amp=1)
 - [webhook.site](https://webhook.site)
@@ -20,8 +29,11 @@ Pass change = you need current pass
 pass reset = you need token from the email adress of the victim unless you can get the server to send the token to you but you don't need CSRF then.
 Email change = pass required
 login/logout = why even?  
-
+ 
 Impact only :)<3
 
 ## How you find original IP and bypass the waf for port scanning ?
 Cloudflare: https://blog.detectify.com/2019/07/31/bypassing-cloudflare-waf-with-the-origin-server-ip-address/
+
+## FAQ how do i 403 bypass? 
+https://github.com/Dheerajmadhukar/4-ZERO-3 !! <3 this is amazing!!
