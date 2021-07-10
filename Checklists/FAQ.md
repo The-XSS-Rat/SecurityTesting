@@ -37,3 +37,13 @@ Cloudflare: https://blog.detectify.com/2019/07/31/bypassing-cloudflare-waf-with-
 
 ## FAQ how do i 403 bypass? 
 https://github.com/Dheerajmadhukar/4-ZERO-3 !! <3 this is amazing!!
+
+## Why test for IDOR and BAC by replacing the JWT token?
+You can not automated replacing the object ID's because on one project it will be userID and on the other the same variable will named accountID. Object ID name's often differ from project to project, JWT does not.
+
+I can show you the exact same impact from replacing the JWT by replacing the objectID and leaving the JWT alone BUTTTT
+
+- You might be changing random people's data
+- You might be testing in a production environment
+
+Note: If you use automation, you can only delete an object ones
