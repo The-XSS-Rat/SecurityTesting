@@ -4,6 +4,7 @@
 - [I found a CSRF issue on the login/logout/change password/change email/...](#i-found-a-csrf-issue-on-the-loginlogoutchange-passwordchange-email)
 - [How you find original IP and bypass the waf for port scanning ?](#how-you-find-original-ip-and-bypass-the-waf-for-port-scanning-)
 - [FAQ how do i 403 bypass?](#faq-how-do-i-403-bypass)
+- [why-test-for-idor-and-bac-by-replacing-the-jwt-token](#why-test-for-idor-and-bac-by-replacing-the-jwt-token)
 
 -----
 
