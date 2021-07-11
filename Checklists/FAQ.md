@@ -5,6 +5,7 @@
 - [How you find original IP and bypass the waf for port scanning ?](#how-you-find-original-ip-and-bypass-the-waf-for-port-scanning-)
 - [FAQ how do i 403 bypass?](#faq-how-do-i-403-bypass)
 - [why-test-for-idor-and-bac-by-replacing-the-jwt-token](#why-test-for-idor-and-bac-by-replacing-the-jwt-token)
+- [i found key x while hunting, is it valid?](#i-found-key-x-while-hunting,-is-it-valid)
 
 -----
 
@@ -48,3 +49,6 @@ I can show you the exact same impact from replacing the JWT by replacing the obj
 - You might be testing in a production environment
 
 Note: If you use automation, you can only delete an object ones
+
+## i found key x while hunting, is it valid? 
+[Check out this keyhacks repo](https://github.com/streaak/keyhacks)
