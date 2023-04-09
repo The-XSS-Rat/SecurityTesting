@@ -5,9 +5,11 @@ This is a Python proxy that intercepts incoming HTTP requests and responses and 
 To use the proxy, you need to have Python 3 installed on your system. You also need to install the mitmproxy library by running the following command:
 
 `pip install mitmproxy`
+
 Once you have the mitmproxy library installed, you can run the proxy by executing the proxy.py script:
 
 `python proxy.py`
+
 The proxy will start listening for incoming HTTP traffic on port 8080. To use the proxy, you need to configure your client to use the proxy server. The exact steps for doing this depend on your client application.
 
 # Security Considerations
