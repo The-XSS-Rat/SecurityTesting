@@ -1,5 +1,3 @@
-from mitmproxy import http
-
 class Proxy:
     def __init__(self, rules):
         self.rules = rules
@@ -26,24 +24,15 @@ class Proxy:
                     b"Blocked by rule: %s" % rule.rule_name.encode('utf-8')
                 )
 
-class Rule:
-    def __init__(self, rule_name, request_headers=None, response_headers=None):
-        self.rule_name = rule_name
-        self.request_headers = request_headers
-        self.response_headers = response_headers
+# Block requests with user agent containing "curl"
+rule1 = Rule("Block cURL requests", request_headers={"User-Agent": "curl"})
 
-    def matches_request(self, request):
-        # Check if the request matches the rule
-        if self.request_headers:
-            for header, value in self.request_headers.items():
-                if header not in request.headers or request.headers[header] != value:
-                    return False
-        return True
+# Block responses with a "Set-Cookie" header
+rule2 = Rule("Block Set-Cookie responses", response_headers={"Set-Cookie": "*"})
 
-    def matches_response(self, request, response):
-        # Check if the response matches the rule
-        if self.response_headers:
-            for header, value in self.response_headers.items():
-                if header not in response.headers or response.headers[header] != value:
-                    return False
-        return True
+# Block requests containing <script> tags
+rule3 = Rule("Block requests containing <script> tags", block_script_tag=True)
+
+rules = [rule1, rule2, rule3]
+proxy = Proxy(rules)
+proxy.run()
