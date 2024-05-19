@@ -1,0 +1,7 @@
+1. Burp Suite Pro CSRF PoC Generator
+2. CSRF PoC Generator: https://security.love/CSRF-PoC-Genorator/
+3. Generic CSRF Vulnerability Scanner: https://securityforeveryone.com/tools/csrf-vulnerability-scanner
+4. XSRFProbe, CSRF automatic scanner: https://github.com/0xInfection/XSRFProbe
+5. PROJECT FORGERY (An Automated CSRF Exploit Generator): https://github.com/haqqibrahim/Project-Forgery
+6. CSRF testing guide: https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery
+7. CSRF Checklist: https://book.hacktricks.xyz/pentesting-web/csrf-cross-site-request-forgery
