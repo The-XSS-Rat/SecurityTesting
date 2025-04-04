@@ -6,11 +6,10 @@ import os
 import csv
 import time
 
-
 # Constants
-LAST_SESSION_FILE = "last_session.json"
-PREFERENCES_FILE = "preferences.json"
-BURP_CERT_PATH = "burp_cert.pem"
+LAST_SESSION_FILE = "/tmp/last_session.json"
+PREFERENCES_FILE = "/tmp/preferences.json"
+BURP_CERT_PATH = "/tmp/burp_cert.pem"
 
 # List to store full history entries
 history_entries = []
@@ -84,8 +83,8 @@ def update_rate_limit():
     except ValueError:
         rate_limit = 1  # Default to 1 request per second if invalid input
 
-# Load preferences
 def load_preferences():
+    """Load preferences if they exist."""
     if os.path.exists(PREFERENCES_FILE):
         with open(PREFERENCES_FILE, 'r') as f:
             prefs = json.load(f)
@@ -168,17 +167,47 @@ def save_session():
     messagebox.showinfo("Saved", f"Session saved to {os.path.basename(file_path)}")
 
 def load_session():
-    file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
-    if not file_path:
-        return
-    with open(file_path, 'r') as f:
-        loaded_entries = json.load(f)
-        history_entries.clear()
-        history_listbox.delete(0, tk.END)
-        for entry in loaded_entries:
-            history_entries.append(entry)
-            history_listbox.insert(tk.END, f"{entry['method']} {entry['url']} [{entry['status_code']}]")
-    messagebox.showinfo("Loaded", f"Session loaded from {os.path.basename(file_path)}")
+    """Load the last session file and populate the history."""
+    if os.path.exists(LAST_SESSION_FILE):
+        with open(LAST_SESSION_FILE, 'r') as f:
+            try:
+                loaded_entries = json.load(f)
+                history_entries.clear()
+                history_listbox.delete(0, tk.END)  # Clear the existing history list
+                for entry in loaded_entries:
+                    history_entries.append(entry)
+                    history_listbox.insert(tk.END, f"{entry['method']} {entry['url']} [{entry['status_code']}]")
+                if len(loaded_entries) > 0:
+                    # Load the last entry into the UI fields
+                    load_history_from_session(loaded_entries[-1])
+            except json.JSONDecodeError:
+                print("Error: Invalid session file format.")
+                messagebox.showerror("Error", "Invalid session file format. Starting with a new session.")
+
+def load_history_from_session(entry):
+    """Populate the UI with data from a session entry."""
+    # Split the full URL into baseURL and endpoint
+    full_url = entry["url"]
+    base_url = full_url.split('/')[0] + '//' + full_url.split('/')[2]  # Extract base URL (http://example.com)
+    endpoint = '/'.join(full_url.split('/')[3:])  # The rest is the endpoint
+    
+    # Update the UI fields with the split base URL and endpoint
+    base_url_entry.delete(0, tk.END)
+    base_url_entry.insert(0, base_url)
+    url_entry.delete(0, tk.END)
+    url_entry.insert(0, endpoint)
+
+    # Populate the other fields with the selected entry's data
+    token_entry.delete(0, tk.END)
+    token_entry.insert(0, entry["auth_token"])
+    method_var.set(entry["method"])
+    content_type_var.set(entry.get("content_type", "JSON"))
+    proxy_entry.delete(0, tk.END)
+    proxy_entry.insert(0, entry["proxy"])
+    body_text.delete("1.0", tk.END)
+    body_text.insert(tk.END, entry["body"])
+    response_text.delete("1.0", tk.END)
+    response_text.insert(tk.END, f"Status Code: {entry['status_code']}\n\n{entry['response']}")
 
 def export_to_csv():
     file_path = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV files", "*.csv")])
@@ -193,7 +222,9 @@ def export_to_csv():
     messagebox.showinfo("Exported", "History exported to CSV")
 
 def perform_request(fuzz_value=None):
-    url = url_entry.get()
+    base_url = base_url_entry.get()
+    endpoint = url_entry.get()
+    full_url = base_url + endpoint  # Combine the baseURL and endpoint dynamically
     auth_token = token_entry.get()
     method = method_var.get()
     proxy_url = proxy_entry.get()
@@ -215,7 +246,7 @@ def perform_request(fuzz_value=None):
     if auth_type_var.get() == "Basic":
         username = username_entry.get()
         password = password_entry.get()
-        headers["Authorization"] = f"Basic {requests.auth._basic_auth_str(username, password)}"
+        headers["Authorization"] = f"{requests.auth._basic_auth_str(username, password)}"
     elif auth_type_var.get() == "Bearer":
         headers["Authorization"] = f"Bearer {auth_token}"
     elif auth_type_var.get() == "OAuth 2.0":
@@ -238,9 +269,9 @@ def perform_request(fuzz_value=None):
             data = dict(item.split("=") for item in body_input.split("&") if "=" in item)
 
     try:
-        response = requests.request(method, url, headers=headers, data=data, json=json_data, proxies=proxies, verify=verify_cert)
+        response = requests.request(method, full_url, headers=headers, data=data, json=json_data, proxies=proxies, verify=verify_cert)
         history_data = {
-            "url": url,
+            "url": full_url,
             "auth_token": auth_token,
             "method": method,
             "proxy": proxy_url,
@@ -250,8 +281,9 @@ def perform_request(fuzz_value=None):
             "content_type": content_type
         }
         history_entries.append(history_data)
-        history_listbox.insert(tk.END, f"{method} {url} [{response.status_code}]")
+        history_listbox.insert(tk.END, f"{method} {full_url} [{response.status_code}]")
 
+        # Save the session after the request
         with open(LAST_SESSION_FILE, 'w') as f:
             json.dump(history_entries, f)
 
@@ -269,9 +301,25 @@ def load_history(event):
     selected_index = history_listbox.curselection()
     if not selected_index:
         return
+
     entry = history_entries[selected_index[0]]
+    
+    # Split the full URL into baseURL and endpoint
+    full_url = entry["url"]
+    base_url = full_url.split('/')[0] + '//' + full_url.split('/')[2]  # Extract base URL (http://example.com)
+    endpoint = '/'.join(full_url.split('/')[3:])  # The rest is the endpoint
+    
+    # Ensure the endpoint starts with a slash if necessary
+    if not endpoint.startswith('/'):
+        endpoint = '/' + endpoint
+    
+    # Update the UI fields with the split base URL and endpoint
+    base_url_entry.delete(0, tk.END)
+    base_url_entry.insert(0, base_url)
     url_entry.delete(0, tk.END)
-    url_entry.insert(0, entry["url"])
+    url_entry.insert(0, endpoint)
+
+    # Populate the other fields with the selected entry's data
     token_entry.delete(0, tk.END)
     token_entry.insert(0, entry["auth_token"])
     method_var.set(entry["method"])
@@ -282,14 +330,6 @@ def load_history(event):
     body_text.insert(tk.END, entry["body"])
     response_text.delete("1.0", tk.END)
     response_text.insert(tk.END, f"Status Code: {entry['status_code']}\n\n{entry['response']}")
-
-# Load previous session if it exists
-if os.path.exists(LAST_SESSION_FILE):
-    with open(LAST_SESSION_FILE, 'r') as f:
-        try:
-            history_entries.extend(json.load(f))
-        except json.JSONDecodeError:
-            pass
 
 # GUI setup
 root = tk.Tk()
@@ -320,23 +360,36 @@ def update_auth_ui(*args):
 
     # Show the appropriate fields based on the selected auth type
     if auth_type == "Basic":
-        username_label.grid(row=3, column=0, sticky="w", padx=5, pady=5)
-        username_entry.grid(row=3, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
-        password_label.grid(row=4, column=0, sticky="w", padx=5, pady=5)
-        password_entry.grid(row=4, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
+        # Place the username and password on the same row (row 4)
+        username_label.grid(row=4, column=0, sticky="w", padx=5, pady=5)
+        username_entry.grid(row=4, column=1, sticky="ew", padx=5, pady=5)
+        password_label.grid(row=4, column=2, sticky="w", padx=5, pady=5)
+        password_entry.grid(row=4, column=3, sticky="ew", padx=5, pady=5)
     elif auth_type == "Bearer" or auth_type == "OAuth 2.0":
-        token_label.grid(row=2, column=0, sticky="w", padx=5, pady=5)
-        token_entry.grid(row=2, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
+        token_label.grid(row=3, column=0, sticky="w", padx=5, pady=5)
+        token_entry.grid(row=3, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
+
 
 # UI fields
-tk.Label(root, text="API Endpoint:").grid(row=0, column=0, sticky="w", padx=5, pady=5)
+tk.Label(root, text="API Endpoint:").grid(row=1, column=0, sticky="w", padx=5, pady=5)
 url_entry = tk.Entry(root, width=80)
-url_entry.grid(row=0, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
+url_entry.grid(row=1, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
 
-tk.Label(root, text="Authentication Type:").grid(row=1, column=0, sticky="w", padx=5, pady=5)
+
+# UI fields
+tk.Label(root, text="Base URL:").grid(row=0, column=0, sticky="w", padx=5, pady=5)
+base_url_entry = tk.Entry(root, width=80)
+base_url_entry.grid(row=0, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
+
+tk.Label(root, text="API Endpoint:").grid(row=1, column=0, sticky="w", padx=5, pady=5)
+url_entry = tk.Entry(root, width=80)
+url_entry.grid(row=1, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
+
+
+tk.Label(root, text="Authentication Type:").grid(row=2, column=0, sticky="w", padx=5, pady=5)
 auth_type_var = tk.StringVar(value="Bearer")
 auth_type_var.trace_add("write", update_auth_ui)  # Update UI when authentication type changes
-tk.OptionMenu(root, auth_type_var, "Basic", "Bearer", "OAuth 2.0").grid(row=1, column=1, sticky="ew", padx=5, pady=5)
+tk.OptionMenu(root, auth_type_var, "Basic", "Bearer", "OAuth 2.0").grid(row=2, column=1, sticky="ew", padx=5, pady=5)
 
 # Labels and entries for different authentication types
 username_label = tk.Label(root, text="Username:")
@@ -369,19 +422,19 @@ body_text.grid(row=8, column=1, columnspan=2, sticky="ew", padx=5, pady=5)
 
 tk.Button(root, text="Send Request", command=perform_request).grid(row=9, column=1, pady=5, sticky="ew", padx=5)
 
-tk.Label(root, text="Fuzz Values (use 'FUZZ' in body):").grid(row=10, column=0, sticky="nw", padx=5, pady=5)
+tk.Label(root, text="Fuzz Values (use 'FUZZ' in body):").grid(row=11, column=0, sticky="nw", padx=5, pady=5)
 fuzz_text = scrolledtext.ScrolledText(root, height=5, width=30)
-fuzz_text.grid(row=10, column=1, sticky="nw", padx=5, pady=5)
-tk.Button(root, text="Fuzz Parameters", command=fuzz_parameters).grid(row=10, column=2, pady=5, sticky="n", padx=5)
+fuzz_text.grid(row=11, column=1, sticky="nw", padx=5, pady=5)
+tk.Button(root, text="Fuzz Parameters", command=fuzz_parameters).grid(row=11, column=2, pady=5, sticky="n", padx=5)
 
-tk.Label(root, text="History:").grid(row=11, column=0, sticky="nw", padx=5, pady=5)
+tk.Label(root, text="History:").grid(row=12, column=0, sticky="nw", padx=5, pady=5)
 history_listbox = tk.Listbox(root, height=10, width=50)
-history_listbox.grid(row=11, column=1, sticky="nw", padx=5, pady=5)
+history_listbox.grid(row=12, column=1, sticky="nw", padx=5, pady=5)
 history_listbox.bind('<<ListboxSelect>>', load_history)
 
-tk.Label(root, text="Response:").grid(row=11, column=2, sticky="nw", padx=5, pady=5)
+tk.Label(root, text="Response:").grid(row=12, column=2, sticky="nw", padx=5, pady=5)
 response_text = scrolledtext.ScrolledText(root, height=10, width=50)
-response_text.grid(row=11, column=2, sticky="ne", padx=5, pady=5)
+response_text.grid(row=12, column=2, sticky="ne", padx=5, pady=5)
 
 # Make columns responsive to resizing
 root.grid_columnconfigure(1, weight=1)
@@ -389,6 +442,8 @@ root.grid_columnconfigure(2, weight=1)
 
 # Load preferences and previous session
 load_preferences()
+load_session()  # Load the session on startup
+
 for entry in history_entries:
     history_listbox.insert(tk.END, f"{entry['method']} {entry['url']} [{entry['status_code']}]")
 
