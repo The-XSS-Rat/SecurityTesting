@@ -16,31 +16,28 @@ This tool allows you to send HTTP requests to a specified API endpoint, perform 
 
 To install the required dependencies using Python 3 and `venv`, follow these steps:
 
-1. **Set up a virtual environment:**
+**Set up a virtual environment:**
 
-   ```bash
-   python3 -m venv venv
-Activate the virtual environment:
 ```
+python3 -m venv venv
+```
+**Activate the virtual environment:**
 
-## On macOS/Linux:
 
-```bash
-Kopiëren
+### On macOS/Linux:
+
+```
 source venv/bin/activate
 ```
-## On Windows:
+### On Windows:
 
-```bash
-Kopiëren
+```
 .\venv\Scripts\activate
 ```
 
-## Install the required dependencies:
+### Install the required dependencies:
 
 ```
-bash
-Kopiëren
 pip install -r requirements.txt
 ```
 
