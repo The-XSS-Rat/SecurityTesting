@@ -7,7 +7,7 @@ import csv
 import time
 
 # Constants
-LAST_SESSION_FILE = "/tmp/last_session.json"
+LAST_SESSION_FILE = "/tmp/last_session.json "
 PREFERENCES_FILE = "/tmp/preferences.json"
 BURP_CERT_PATH = "/tmp/burp_cert.pem"
 
