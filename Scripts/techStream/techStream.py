@@ -11,19 +11,29 @@ html = "<html><head><title>Cybersecurity Articles</title></head><body>"
 
 # Loop through each URL and scrape the latest articles
 for url in urls:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, features="xml")
-    
-    # Extract the title, link, and summary of the latest articles
-    articles = soup.find_all("item")[:5]
-    for article in articles:
-        title = article.find("title").text
-        link = article.find("link").text
-        summary = article.find("description").text
-        
-        # Add the title, link, and summary to the HTML document
-        html += "<h2><a href='" + link + "'>" + title + "</a></h2>"
-        html += "<p>" + summary + "</p>"
+    try:
+        response = requests.get(url)
+        response.raise_for_status() #check for successful request
+        soup = BeautifulSoup(response.content, features="xml")
+        # Extract the title, link, and summary of the latest articles 
+        articles = soup.find_all("item")[:5] #latest 5 articles
+        for article in articles:
+            title = article.find("title").text
+            link = article.find("link").text
+            summary = article.find("description").text
+            
+            # extracting publivcation date(if there)
+            pub_date=article.find("pubDate")
+            pub_date = pub_date.text if pub_date else "No Date Available"
+            
+            # Add the title, link, summary and publication date to the HTML document
+            html += f"<h2><a href='{link}'>{title}</a></h2>"
+            html += f"<p><strong>Published on: {pub_date}</strong></p>"
+            html += f"<p>{summary}</p>"
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching {url}: {e}")
+
+
 
 # Close the HTML document
 html += "</body></html>"
