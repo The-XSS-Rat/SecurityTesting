@@ -48,8 +48,11 @@ A Python-based GUI tool for sending customized HTTP requests with fuzzing capabi
 - To install the required dependencies using Python 3 and venv follow these steps:
 
 ```bash
-git clone https://github.com/The-XSS-Rat/SecurityTesting/tree/master/Scripts/RatAPIChat
-
+git clone --depth 1 https://github.com/The-XSS-Rat/SecurityTesting.git
+cd SecurityTesting/Scripts
+mv RatAPIChat ../../
+cd ../..
+rm -rf SecurityTesting
 ```
 
 - Set up a virtual environment:
