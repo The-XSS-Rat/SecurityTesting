@@ -1,0 +1,203 @@
+100 Open‑Source Bug Bounty Tools (GitHub Collection)
+
+https://thexssrat.podia.com/full-house-bundle-all-of-our-current-and-future-courses-in-one?coupon=90090OFFDF
+
+A curated, category‑based collection of open‑source tools hosted on GitHub that bug bounty hunters rely on. Each item links to its repository.
+
+Recon & Attack Surface Mapping
+==========================
+OWASP Amass — https://github.com/owasp-amass/amass
+ProjectDiscovery Subfinder — https://github.com/projectdiscovery/subfinder
+Assetfinder (tomnomnom) — https://github.com/tomnomnom/assetfinder
+Findomain — https://github.com/Findomain/Findomain
+OneForAll — https://github.com/shmilylty/OneForAll
+Sublist3r — https://github.com/aboul3la/Sublist3r
+reconFTW — https://github.com/six2dez/reconftw
+BBOT — https://github.com/blacklanternsecurity/bbot
+Aquatone — https://github.com/michenriksen/aquatone
+EyeWitness — https://github.com/FortyNorthSecurity/EyeWitness
+ASNmap — https://github.com/projectdiscovery/asnmap
+MapCIDR — https://github.com/projectdiscovery/mapcidr
+Uncover — https://github.com/projectdiscovery/uncover
+Naabu (port scanner) — https://github.com/projectdiscovery/naabu
+RustScan — https://github.com/RustScan/RustScan
+Nmap — https://github.com/nmap/nmap
+gowitness — https://github.com/sensepost/gowitness
+WhatWeb — https://github.com/urbanadventurer/whatweb
+Wappalyzer — https://github.com/wappalyzer/wappalyzer
+Kiterunner (API routes) — https://github.com/assetnote/kiterunner
+
+DNS, TLS & Certificates
+==========================
+dnsx — https://github.com/projectdiscovery/dnsx
+MassDNS — https://github.com/blechschmidt/massdns
+dnsgen — https://github.com/ProjectAnte/dnsgen
+dnsvalidator — https://github.com/vortexau/dnsvalidator
+tlsx — https://github.com/projectdiscovery/tlsx
+CHAOS client — https://github.com/projectdiscovery/chaos-client
+
+Crawling & Endpoint Discovery
+==========================
+Katana — https://github.com/projectdiscovery/katana
+hakrawler — https://github.com/hakluke/hakrawler
+gospider — https://github.com/jaeles-project/gospider
+Photon — https://github.com/s0md3v/Photon
+LinkFinder — https://github.com/GerbenJavado/LinkFinder
+xnLinkFinder — https://github.com/xnl-h4ck3r/xnLinkFinder
+cariddi — https://github.com/edoardottt/cariddi
+JSFinder — https://github.com/Threezh1/JSFinder
+subjs — https://github.com/lc/subjs
+
+HTTP Probing & Asset Triage
+==========================
+httpx — https://github.com/projectdiscovery/httpx
+httprobe — https://github.com/tomnomnom/httprobe
+hakcheckurl — https://github.com/hakluke/hakcheckurl
+
+
+Content Discovery & Wordlists
+==========================
+ffuf — https://github.com/ffuf/ffuf
+dirsearch — https://github.com/maurosoria/dirsearch
+feroxbuster — https://github.com/epi052/feroxbuster
+gobuster — https://github.com/gobuster/gobuster
+wfuzz — https://github.com/xmendez/wfuzz
+commonspeak2‑wordlists — https://github.com/assetnote/commonspeak2-wordlists
+SecLists — https://github.com/danielmiessler/SecLists
+PayloadsAllTheThings — https://github.com/swisskyrepo/PayloadsAllTheThings
+
+Historical Data & URL Utilities
+==========================
+waybackurls — https://github.com/tomnomnom/waybackurls
+gau — https://github.com/lc/gau
+uro — https://github.com/s0md3v/uro
+anew — https://github.com/tomnomnom/anew
+unfurl — https://github.com/tomnomnom/unfurl
+qsreplace — https://github.com/tomnomnom/qsreplace
+meg — https://github.com/tomnomnom/meg
+concurl — https://github.com/tomnomnom/concurl
+gron (JSON grep) — https://github.com/tomnomnom/gron
+
+Parameter Discovery & API Focus
+==========================
+Arjun — https://github.com/s0md3v/Arjun
+ParamSpider — https://github.com/devanshbatham/ParamSpider
+x8 — https://github.com/sh1yo/x8
+Kiterunner (again) — https://github.com/assetnote/kiterunner
+
+Vulnerability Scanners & Frameworks
+==========================
+Nuclei — https://github.com/projectdiscovery/nuclei
+Nuclei Templates — https://github.com/projectdiscovery/nuclei-templates
+Jaeles — https://github.com/jaeles-project/jaeles
+ZAP (OWASP) — https://github.com/zaproxy/zaproxy
+
+XSS Tooling & Blind XSS
+==========================
+XSStrike — https://github.com/s0md3v/XSStrike
+Dalfox — https://github.com/hahwul/dalfox
+XSpear — https://github.com/hahwul/XSpear
+ezXSS — https://github.com/ssl/ezXSS
+KXSS (tomnomnom hacks) — https://github.com/tomnomnom/hacks/tree/master/kxss
+
+CORS, CRLF, Open Redirects & Smuggling
+==========================
+CORScanner — https://github.com/chenjj/CORScanner
+Corsy — https://github.com/s0md3v/Corsy
+CRLFuzz — https://github.com/dwisiswant0/CRLFuzz
+OpenRedireX — https://github.com/devanshbatham/OpenRedireX
+smuggler (HTTP Request Smuggling) — https://github.com/defparam/smuggler
+
+Injection, Deserialization, Template & Cache Attacks
+==========================
+sqlmap — https://github.com/sqlmapproject/sqlmap
+tplmap (SSTI) — https://github.com/epinna/tplmap
+Web Cache Vulnerability Scanner — https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner
+
+SSRF, S3 & Cloud Misconfig
+==========================
+SSRFmap — https://github.com/swisskyrepo/SSRFmap
+Interactsh (OAST server) — https://github.com/projectdiscovery/interactsh
+S3Scanner — https://github.com/sa7mon/S3Scanner
+cloud_enum — https://github.com/initstring/cloud_enum
+
+JWT, Auth & Crypto
+==========================
+jwt_tool — https://github.com/ticarpi/jwt_tool
+
+Subdomain Takeover
+==========================
+subzy — https://github.com/LukaSikic/subzy
+subjack — https://github.com/haccer/subjack
+Can I Take Over XYZ? (reference list) — https://github.com/EdOverflow/can-i-take-over-xyz
+
+Git, Secrets & CI Leaks
+==========================
+trufflehog — https://github.com/trufflesecurity/trufflehog
+gitleaks — https://github.com/gitleaks/gitleaks
+GitHub Search (gwen001) — https://github.com/gwen001/github-search
+github‑subdomains (gwen001) — https://github.com/gwen001/github-subdomains
+github‑endpoints (gwen001) — https://github.com/gwen001/github-endpoints
+FavFreak (favicon hashing) — https://github.com/devanshbatham/FavFreak
+
+CMS & Platform Scanners
+==========================
+WPScan — https://github.com/wpscanteam/wpscan
+Joomla Joomscan — https://github.com/OWASP/joomscan
+CMSmap — https://github.com/Dionach/CMSmap
+
+Helper Proxies & Traffic Tools
+==========================
+Proxify — https://github.com/projectdiscovery/proxify
+mitmproxy — https://github.com/mitmproxy/mitmproxy
+
+Live Collaboration, Notify & Workflow
+==========================
+notify — https://github.com/projectdiscovery/notify
+
+Extra Recon & Utilities 
+==========================
+haktrails — https://github.com/hakluke/haktrails
+knock (knockpy) — https://github.com/guelfoweb/knock
+Dirhunt — https://github.com/Nekmo/dirhunt
+CMSScannner (CMSeeK) — https://github.com/Tuhinshubhra/CMSeeK
+URLGrab — https://github.com/IvanGlinkin/urlgrab
+nuclei‑workflow (community workflows) — https://github.com/projectdiscovery/nuclei-templates/tree/main/workflows
+wfuzz‑payloads — https://github.com/xmendez/wfuzz/tree/master/wordlist
+crlf‑payloads (lists) — https://github.com/dwisiswant0/crlfuzz/tree/master/payloads
+gf — https://github.com/tomnomnom/gf
+Gf‑Patterns — https://github.com/1ndianl33t/Gf-Patterns
+hakrevdns — https://github.com/hakluke/hakrevdns
+Subfinder‑docker — https://github.com/projectdiscovery/subfinder/tree/master/docker
+Naabu‑docker — https://github.com/projectdiscovery/naabu/tree/master/docker
+ffuf‑automator — https://github.com/dark-warlord14/ffuf-automator
+URLCrazy — https://github.com/urbanadventurer/urlcrazy
+Domain Analyser — https://github.com/eldraco/domain_analyzer
+Github Dorks — https://github.com/techgaun/github-dorks
+Dorks collections (dorks‑collections) — https://github.com/kh4sh3i/dorks-collections-list
+GXSS (XSS via GET) — https://github.com/KathanP19/Gxss
+gf‑templates (security‑patterns) — https://github.com/tomnomnom/gf/tree/master/examples
+nuclei‑templates‑community (extra) — https://github.com/projectdiscovery/nuclei-templates
+CVEMap to templates (nuclei‑cves) — https://github.com/projectdiscovery/nuclei-vulnerabilities
+httpx integrations — https://github.com/projectdiscovery/httpx/tree/master/integrations
+massdns‑scripts — https://github.com/blechschmidt/massdns/tree/master/scripts
+aquatone‑chrome — https://github.com/michenriksen/aquatone#requirements
+EyeWitness‑Docker — https://github.com/FortyNorthSecurity/EyeWitness#docker
+WPScan‑Docker — https://github.com/wpscanteam/wpscan#docker
+JS‑SecretFinder fork (m4ll0k) — https://github.com/m4ll0k/SecretFinder
+ParamSpider‑wordlists — https://github.com/devanshbatham/ParamSpider/tree/master/good‑words
+Subjack fingerprints — https://github.com/haccer/subjack#fingerprints
+subzy fingerprints — https://github.com/LukaSikic/subzy/tree/master/fingerprints
+Swagger‑wordlists (apis) — https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content/api
+Dirsearch extensions — https://github.com/maurosoria/dirsearch#wordlist
+Feroxbuster config — https://github.com/epi052/feroxbuster#configuration
+Gobuster wordlists — https://github.com/gobuster/gobuster#wordlists
+x8 payloads — https://github.com/sh1yo/x8#payloads
+
+Notes
+==========================
+Most tools are language‑specific (Go, Python, Rust). Check repo READMEs for install steps.
+
+Combine reconnaissance (Subfinder/Amass) → triage (httpx) → crawling (Katana) → content discovery (ffuf/feroxbuster) → templated scanning (Nuclei) → manual validation.
+
+Keep wordlists fresh (SecLists, commonspeak2).
